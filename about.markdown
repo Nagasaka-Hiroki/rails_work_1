@@ -1,18 +1,21 @@
 ---
 layout: page
-title: About
+title: このサイトについて
 permalink: /about/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
+# 目的
+このサイトは、「FlowChat」（Railsアプリケーション）を開発するための設計書や開発に関する記録・閲覧可能にすることを目的とする。
 
-You can find the source code for Minima at GitHub:
-[jekyll][jekyll-organization] /
-[minima](https://github.com/jekyll/minima)
+# サイトの読み方
+[ホーム]({{ site.baseurl}}/)から基本的にすべての資料にアクセスできる。  
+開発手順を順番に確認したい場合は、ホームにあるリンクを上から順にアクセスすることで閲覧できる。
 
-You can find the source code for Jekyll at GitHub:
-[jekyll][jekyll-organization] /
-[jekyll](https://github.com/jekyll/jekyll)
+# GitHubリポジトリ
+FlowChatアプリケーションのGitHubリポジトリは以下のURLが示す場所にある。  
+[https://github.com/Nagasaka-Hiroki/rails_work_1](https://github.com/Nagasaka-Hiroki/rails_work_1)  
 
-
-[jekyll-organization]: https://github.com/jekyll
+# このサイトの作成について
+このサイトはGithub Pages上でデプロイするため、[jekyll](https://jekyllrb.com/)を使用して作成している。テーマなどは作り込みの本質ではないと判断しデフォルトのままにする。  
+また、通常のWebサイトであれば見出しタグなど(h1,h2など)のそれぞれの目的に応じてタグを変更すべきである。しかし、本サイトは直接検索エンジンから検索してアクセスしてもらうことを想定せず、資料をWeb上で閲覧可能にすることを重視している。
+そのため、見出しタグなどは主として見た目を変更する目的で使用し、その他のタグに関しても本来の目的と異なる用途で利用する場合があり、それを許容する前提で作成を行う。
