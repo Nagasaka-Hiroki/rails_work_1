@@ -40,4 +40,14 @@ docker build -t rails_container:dev_gu .
 ```bash
 docker run --name dev_prototype -it -v $(pwd):/home/general_user/rails_dir -p 35729:35729  rails_container:dev_gu
 ```
-コンテナ内から`rails new `を実行してプロジェクトを作成する。
+コンテナ内から`rails new `を実行してプロジェクトを作成する。(ただ`rails new`した場合ブランチが`main`になるので追跡する前に`prototype`に切り替える。)
+
+## livereload有効化
+以下を参考に設定をする。
+> - [https://github.com/guard/guard-livereload](https://github.com/guard/guard-livereload)
+> - [https://techracho.bpsinc.jp/hachi8833/2022_02_04/115417](https://techracho.bpsinc.jp/hachi8833/2022_02_04/115417)
+> - [https://rubygems.org/gems/rack-livereload/versions/0.3.17](https://rubygems.org/gems/rack-livereload/versions/0.3.17)
+> - [https://github.com/jaredmdobson/rack-livereload](https://github.com/jaredmdobson/rack-livereload)
+> - [https://github.com/guard/guard-livereload/issues/193](https://github.com/guard/guard-livereload/issues/193)
+
+`./bin/dev`でサーバを起動してlivereloadの処理が入っていることを確認。有効化の手順は以上。
