@@ -1,0 +1,16 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+nkun:
+  id: 1
+  user_name: nkun
+  password: password
+
+xsan:
+  id: 2
+  user_name: xsan
+  password: xpass
+
+ysan:
+  id: 3
+  user_name: ysan
+  password: ypass
