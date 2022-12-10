@@ -5,11 +5,15 @@
         <%= 'this is test' %>
     </p>
     <p>
-        <%# @userを特に形式にこだわりなく使用するときは以下の記述 %>
-        <%#= @user['user_name'] %>
-
-        <%# @userをハッシュからクラスインスタンスに変換（再生成）した場合は以下の記述ができる。 %>
         <%= @user.user_name %>
     </p>
-    <%= link_to 'ログアウトします', action: 'logout' %>
+    <%#= link_to 'ログアウトします', action: 'logout' %>
+
+    <%#= form_with model: @user, url: logout_auths_url, method: :patch do |f| %>
+    <%= form_with url: logout_auths_url, method: :patch do |f| %>
+        <div>
+            <%= f.label 'ログアウト' , style: "display: block"%>
+            <%= f.submit 'ログアウトはここをクリック' %>
+        </div>
+    <% end %>
 </div>

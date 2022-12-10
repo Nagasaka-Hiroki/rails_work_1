@@ -51,3 +51,12 @@ docker run --name dev_prototype -it -v $(pwd):/home/general_user/rails_dir -p 35
 > - [https://github.com/guard/guard-livereload/issues/193](https://github.com/guard/guard-livereload/issues/193)
 
 `./bin/dev`でサーバを起動してlivereloadの処理が入っていることを確認。有効化の手順は以上。
+
+## open_firefox
+　開発時にブラウザに毎回アクセスするのは面倒。なのでターミナルからブラウザを起動できるようにした。
+
+使い方は単純で、以下のようにコマンドを入力する。
+```bash
+./open_firefox controller_name action_name id
+```
+上記コマンドでfirefox上で`http://172.17.0.2:3000/controller_name/action_name/id`のURLにアクセすることができる。
