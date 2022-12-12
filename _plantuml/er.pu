@@ -1,0 +1,9 @@
+'ER図の書き方を明記するための図
+@startuml entity-description
+    entity テーブル名 {
+        主キー　: 型名
+        --
+        外部キー(FK) : 型名
+        非キー : 型名
+    }
+@enduml

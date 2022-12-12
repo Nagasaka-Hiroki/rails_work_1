@@ -1,0 +1,37 @@
+' ログイン機能のER図
+@startuml user-chat-room-relation
+    title ログイン機能のER図
+    ' Userテーブル　ユーザに関する情報を保存
+    entity User {
+        user_id : integer
+        --
+        user_name : string
+        password : string
+    }
+    ' Chatテーブル　チャット内容を保存
+    entity Chat {
+        user_id(FK) : integer
+        room_id(FK) : integer
+        created_at : date
+        --
+        content : text
+    }
+    ' Roomテーブル　チャットの可視性を指定する
+    entity Room {
+        room_id : integer
+        --
+        room_name: string
+    }
+    ' UserRoomテーブル　UserとRoomの多対多を解決する中間テーブル
+    entity UserRoom {
+        user_room_id : integer
+        --
+        user_id(FK) : integer
+        room_id(FK) : integer
+    }
+    ' エンティティのリレーションを定義する
+    User ||-o{ Chat
+    Chat }o--|| Room
+    UserRoom ||-|{ Room
+    User }|--|| UserRoom
+@enduml

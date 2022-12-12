@@ -1,0 +1,30 @@
+'ログイン処理についてまとめる。
+@startuml login_logout_procedure
+title ログインからログアウトまでの処理の流れ
+|非ログイン状態|
+start
+if (アカウントを持っている?) then (no)
+:アカウント作成画面を表示;
+:ユーザ名(user_name)と
+パスワード(passward)を入力;
+:データベースに登録;
+else (yes)
+:ログイン画面を表示;
+:ユーザ名(user_name)と
+パスワード(passward)を入力;
+endif
+
+while (認証) is (失敗)
+:再認証;
+endwhile (成功)
+
+|ログイン状態|
+:マイページを表示;
+:無効な認証情報でキャッシュを上書き;
+
+
+|非ログイン状態|
+:ログアウト成功;
+end
+
+@enduml

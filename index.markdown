@@ -17,6 +17,7 @@ permalink: /
 1. [開発環境と本番環境について]({{site.baseurl}}/dev_prd)
 1. [開発方法に関して]({{site.baseurl}}/how2dev)
 1. [大まかな要求と開発計画]({{site.baseurl}}/req_and_plan)
+1. [UML及びE-R図の書き方]({{site.baseurl}}/uml_docs)
 1. [参考資料]({{site.baseurl}}/main_ref)
 
 ### 開発
@@ -26,7 +27,7 @@ permalink: /
 
 #### イテレーション1 (ToDo機能)
 1. [要求及び仕様](          {{site.baseurl}}/iteration_1/req_and_spec)
-1. [プロトタイプ作成](      {{site.baseurl}}/iteration_1/)
+1. [プロトタイプ作成](      {{site.baseurl}}/iteration_1/prototype)
 1. [外部・内部・テスト設計]({{site.baseurl}}/iteration_1/)
 1. [テスト](                {{site.baseurl}}/iteration_1/)
 1. [リファクタリング](      {{site.baseurl}}/iteration_1/)

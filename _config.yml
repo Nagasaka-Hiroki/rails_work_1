@@ -66,3 +66,7 @@ defaults:
       path: ""
     values:
       layout: "page"
+
+#ヘッダーに表示するページを制御する。
+header_pages:
+  - about.markdown
