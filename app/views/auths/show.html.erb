@@ -1,5 +1,8 @@
 <h1>ログインホーム画面</h1>
 
-<%= link_to 'ログインする', action: 'mypage' %>
+<%= link_to 'ログインする',url_for(action: 'mypage',only_path: false, user: '', password: '') %>
 <br />
-<%= link_to 'アカウントを作成します', action: 'new' %>
+<%#= link_to 'アカウントを作成します', action: 'new' %>
+<%= link_to 'アカウントを作成します', url_for(action: 'new',only_path: false, user: '', password: '') %>
+<br />
+<p data-controller="hello"></p>

@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   # auth controller
   resource :auths do
     #get 'login'
-    patch 'logout'
+    get 'logout'
     get 'mypage'
   end
 end
