@@ -17,7 +17,8 @@ RUN groupadd -g $GID $GROUPNAME \
 RUN apt-get update && apt-get upgrade -y \
  && apt-get install git autoconf bison patch build-essential rustc libssl-dev libyaml-dev \
     libreadline6-dev zlib1g-dev libgmp-dev libncurses5-dev libffi-dev libgdbm6 libgdbm-dev \
-    libdb-dev uuid-dev curl sqlite3 libsqlite3-dev -y
+    libdb-dev uuid-dev curl sqlite3 libsqlite3-dev \
+    libvips ffmpeg poppler-utils poppler-data -y
 
 # 一般ユーザで続きを実行する。
 USER $USERNAME

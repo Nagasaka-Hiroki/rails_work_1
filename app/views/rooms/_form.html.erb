@@ -1,0 +1,9 @@
+<%= form_with model: chat_text, url: path_to_post do |f| %>
+    <div class="field">
+        <%= f.label "伝えたいことを入力しよう。" %>
+        <%= f.rich_text_area :content %>
+    </div>
+    <div class="actions">
+        <%= f.submit %>
+    </div>
+<% end %>

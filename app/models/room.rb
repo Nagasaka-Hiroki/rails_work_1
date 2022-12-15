@@ -1,8 +1,8 @@
-class User < ApplicationRecord
+class Room < ApplicationRecord
     #UserとRoomの多対多を実装する
     #中間テーブルは:user_roomsとして作成
     has_many :user_rooms
-    has_many :rooms, through: :user_rooms
+    has_many :users, through: :user_rooms
     #Chatモデルとのリレーションを定義する
     has_many :chats
 end

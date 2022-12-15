@@ -4,10 +4,11 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
 
-  # auth controller
+  # auths controller
   resource :auths do
-    #get 'login'
     get 'logout'
     get 'mypage'
   end
+  # rooms controller
+  resources :rooms
 end
