@@ -3,9 +3,11 @@
 </h1>
 
 <div>
-
+    <% @chats.each do |chat| %>
+        <p><%= chat.chat_text.content %></p>
+    <% end %>
 </div>
 
 <div>
-    <%= render 'form', chat_text: @chat_text, path_to_post: url_for(@room) %>
+    <%= render 'form', chat_text: @chat_text, path_to_post: record_chat_room_path %>
 </div>

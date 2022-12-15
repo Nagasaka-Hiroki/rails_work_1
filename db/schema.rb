@@ -55,12 +55,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_14_125434) do
   end
 
   create_table "chats", force: :cascade do |t|
-    t.integer "content_id", null: false
+    t.integer "chat_text_id", null: false
     t.integer "user_id", null: false
     t.integer "room_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["content_id"], name: "index_chats_on_content_id"
+    t.index ["chat_text_id"], name: "index_chats_on_chat_text_id"
     t.index ["room_id"], name: "index_chats_on_room_id"
     t.index ["user_id"], name: "index_chats_on_user_id"
   end
@@ -87,7 +87,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_14_125434) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "chats", "contents"
+  add_foreign_key "chats", "chat_texts"
   add_foreign_key "chats", "rooms"
   add_foreign_key "chats", "users"
   add_foreign_key "user_rooms", "rooms"

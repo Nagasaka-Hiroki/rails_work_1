@@ -10,5 +10,10 @@ Rails.application.routes.draw do
     get 'mypage'
   end
   # rooms controller
-  resources :rooms
+  resources :rooms do
+    member do
+      #発言内容を保存するための設定
+      post 'record_chat'
+    end
+  end
 end

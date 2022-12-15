@@ -5,4 +5,5 @@ class Room < ApplicationRecord
     has_many :users, through: :user_rooms
     #Chatモデルとのリレーションを定義する
     has_many :chats
+    has_many :chat_texts, through: :chats
 end
