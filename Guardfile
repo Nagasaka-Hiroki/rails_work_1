@@ -54,4 +54,7 @@ guard 'livereload' do
   watch(%r{config/locales/.+\.yml})
   watch(%r{app/controllers/.+\.rb})
   watch(%r{app/models/.+\.rb})
+  # javascript
+  watch(%r{app/javascript/.+\.js})
+  watch(%r{app/javascript/channels/.+\.js})
 end

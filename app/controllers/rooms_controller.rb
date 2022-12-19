@@ -4,6 +4,8 @@ class RoomsController < ApplicationController
     #変数のセット
     before_action :set_room, only: %i[ show  record_chat ]
     before_action :set_user, only: %i[ index show record_chat ]
+    #レイアウトをセット
+    layout 'room_layout', only: %i[ index show ]
     #一覧を表示する。
     def index
         #セッションからユーザを取り出す
