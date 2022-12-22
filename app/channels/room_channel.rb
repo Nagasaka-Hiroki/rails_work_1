@@ -9,16 +9,17 @@ class RoomChannel < ApplicationCable::Channel
 
   #クライアント側の挙動で呼び出される
   def speak(data)
-    message = Message.create!(content: data["message"])
+    chat_text = ChatText.create!(content: data["content"])
+    #chat = Chat.new user: user_name, room: room_name, chat_text: chat
     ActionCable.server.broadcast(
-      "room_channel", { message: render_message(message)}
+      "room_channel", { content: render_chat(chat)}
     )
   end
 
   private
-  def render_message(message)
+  def render_chat(chat)
     ApplicationController.render(
-      partial: "messages/message",
-      locals: {message: message }
+      partial: "rooms/chat",
+      locals: {chat: chat }
     )
 end

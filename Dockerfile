@@ -37,8 +37,13 @@ RUN git clone https://github.com/rbenv/ruby-build.git "$(rbenv root)"/plugins/ru
  && rbenv rehash \
  && gem update --system \
  && gem install rails -v 7.0.4 \
+ && gem install foreman \
  && rbenv rehash \
  && mkdir -p /home/$USERNAME/rails_dir
+
+# イメージのipアドレスをバインド。(コンテナ内に入って値を調べて記述)
+# より良いのはコマンドで値をとってくることかもしれないが、直打ちしたほうが早いので今回はこの対応とする。
+#ENV BINDING="172.17.0.2" #→composeで指定した方が都合がいい。
 
 # nvmをダウンロードしてインストール
 RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.2/install.sh | bash \
