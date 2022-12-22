@@ -22,4 +22,5 @@ class RoomChannel < ApplicationCable::Channel
       partial: "rooms/chat",
       locals: {chat: chat }
     )
+  end
 end

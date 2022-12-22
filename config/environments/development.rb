@@ -70,4 +70,8 @@ Rails.application.configure do
 
   config.middleware.insert_after ActionDispatch::Static, Rack::LiveReload
   config.assets.digest = false
+
+  #config.action_cable.disable_request_forgery_protection = true
+  #config.action_cable.allowed_request_origins = ['http://172.18.0.1', %r{http:\/\/[\s\S]*}, %r{http:\/\/172\.18\.[0-255]\.[0-255]}]
+  #config.web_console.whiny_requests = false
 end
