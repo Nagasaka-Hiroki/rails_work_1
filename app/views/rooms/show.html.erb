@@ -2,13 +2,12 @@
     <%= @room.room_name %>
 </h1>
 
-<div>
+<div id="chat_log">
     <% @chats.each do |chat| %>
         <%= render 'rooms/chat', chat: chat %>
     <% end %>
 </div>
 
 <div>
-    <%= render 'form', chat_text: @chat_text, path_to_post: record_chat_room_path %>
-    <button type="button" class="send_content">送信</button>
+    <%= render 'form', chat_text: @chat_text, class_name: 'input_space', editor_id: 'action_text_box',path_to_post: record_chat_room_path %>
 </div>
