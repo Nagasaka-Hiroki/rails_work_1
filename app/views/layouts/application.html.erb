@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>RailsDir</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+    <%# 個別に必要なスクリプトを読み込む %>
+    <%= content_for?(:additional_scripts) ? yield(:additional_scripts):nil %>
+  </head>
+
+  <body>
+    <%= yield %>
+  </body>
+</html>

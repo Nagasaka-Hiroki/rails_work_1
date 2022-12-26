@@ -1,0 +1,13 @@
+<%= form_with model: user, url: path_to_post do |f| %>
+    <div>
+        <%= f.label :user_name, style: "display: block" %>
+        <%= f.text_field :user_name %>
+    </div>
+        <div>
+        <%= f.label :password, style: "display: block" %>
+        <%= f.password_field :password %>
+    </div>
+    <div>
+        <%= f.submit '登録' %>
+    </div>
+<% end %>

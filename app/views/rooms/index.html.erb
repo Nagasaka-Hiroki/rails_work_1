@@ -1,0 +1,9 @@
+<h1>ルーム一覧</h1>
+
+<% @rooms.each do |room| %>
+    <p>
+        <%= link_to room.room_name, url_for(room) %>
+    </p>
+<% end %>
+<br />
+<%= link_to 'マイページへ', controller: 'auths', action: 'mypage' %>
