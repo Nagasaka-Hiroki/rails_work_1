@@ -1,0 +1,5 @@
+#!/bin/bash
+#ライブリロードポートの番号を指定する。
+LIVERELOAD_PORT=50000
+#サーバを起動する。
+bundle exec jekyll s --livereload-port $LIVERELOAD_PORT

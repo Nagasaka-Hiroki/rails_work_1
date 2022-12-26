@@ -33,6 +33,21 @@ permalink: /
 1. [リファクタリング](      {{site.baseurl}}/iteration_1/)
 1. [総評と次回への改善点](  {{site.baseurl}}/iteration_1/)
 
+### 試行錯誤の記録、その他の記録
+---
+　作業記録兼日誌として試行錯誤の記録をつけた。  
+以下に各イテレーションごとの試行錯誤の記録について示す。  
+(注意：試行錯誤は非常に長く、間違いの連続の記録なので結論だけ知りたい方は非推奨。)  
+　また、その他の記録にアクセスしやすくするためにリンクを記していく。
+
+1. [開発言語の選定における評価に関する詳細](       {{site.baseurl}}/detail)
+1. [イテレーション1 試行錯誤（一部0の要素を含む）]({{site.baseurl}}/iteration_1/try_and_err)
+1. [イテレーション1 メインブランチでの作業](       {{site.baseurl}}/iteration_1/main_branch)
+
+---
+
+以下準備中。
+
 #### イテレーション2 (チャート化機能)
 1. [要求及び仕様](        {{site.baseurl}}/iteration_)
 1. [プロトタイプ作成](    {{site.baseurl}}/iteration_)
@@ -43,50 +58,50 @@ permalink: /
 1. [総評と次回への改善点]({{site.baseurl}}/iteration_)
 
 #### イテレーション3 (分岐機能)
-1. [要求及び仕様](        {{site.baseurl}}/)
-1. [プロトタイプ作成](    {{site.baseurl}}/)
-1. [外部設計](            {{site.baseurl}}/)
-1. [内部設計](            {{site.baseurl}}/)
-1. [リファクタリング](    {{site.baseurl}}/)
-1. [テスト](              {{site.baseurl}}/)
-1. [総評と次回への改善点]({{site.baseurl}}/)
+1. [要求及び仕様](        {{site.baseurl}}/iteration_)
+1. [プロトタイプ作成](    {{site.baseurl}}/iteration_)
+1. [外部設計](            {{site.baseurl}}/iteration_)
+1. [内部設計](            {{site.baseurl}}/iteration_)
+1. [リファクタリング](    {{site.baseurl}}/iteration_)
+1. [テスト](              {{site.baseurl}}/iteration_)
+1. [総評と次回への改善点]({{site.baseurl}}/iteration_)
 
 #### イテレーション4 (ノート機能)
-1. [要求及び仕様](        {{site.baseurl}}/)
-1. [プロトタイプ作成](    {{site.baseurl}}/)
-1. [外部設計](            {{site.baseurl}}/)
-1. [内部設計](            {{site.baseurl}}/)
-1. [リファクタリング](    {{site.baseurl}}/)
-1. [テスト](              {{site.baseurl}}/)
-1. [総評と次回への改善点]({{site.baseurl}}/)
+1. [要求及び仕様](        {{site.baseurl}}/iteration_)
+1. [プロトタイプ作成](    {{site.baseurl}}/iteration_)
+1. [外部設計](            {{site.baseurl}}/iteration_)
+1. [内部設計](            {{site.baseurl}}/iteration_)
+1. [リファクタリング](    {{site.baseurl}}/iteration_)
+1. [テスト](              {{site.baseurl}}/iteration_)
+1. [総評と次回への改善点]({{site.baseurl}}/iteration_)
 
 #### イテレーション5 (見返し機能)
-1. [要求及び仕様](        {{site.baseurl}}/)
-1. [プロトタイプ作成](    {{site.baseurl}}/)
-1. [外部設計](            {{site.baseurl}}/)
-1. [内部設計](            {{site.baseurl}}/)
-1. [リファクタリング](    {{site.baseurl}}/)
-1. [テスト](              {{site.baseurl}}/)
-1. [総評と次回への改善点]({{site.baseurl}}/)
+1. [要求及び仕様](        {{site.baseurl}}/iteration_)
+1. [プロトタイプ作成](    {{site.baseurl}}/iteration_)
+1. [外部設計](            {{site.baseurl}}/iteration_)
+1. [内部設計](            {{site.baseurl}}/iteration_)
+1. [リファクタリング](    {{site.baseurl}}/iteration_)
+1. [テスト](              {{site.baseurl}}/iteration_)
+1. [総評と次回への改善点]({{site.baseurl}}/iteration_)
 
 #### イテレーション6 (プライベートチャット機能)
-1. [要求及び仕様](        {{site.baseurl}}/)
-1. [プロトタイプ作成](    {{site.baseurl}}/)
-1. [外部設計](            {{site.baseurl}}/)
-1. [内部設計](            {{site.baseurl}}/)
-1. [リファクタリング](    {{site.baseurl}}/)
-1. [テスト](              {{site.baseurl}}/)
-1. [総評と次回への改善点]({{site.baseurl}}/)
+1. [要求及び仕様](        {{site.baseurl}}/iteration_)
+1. [プロトタイプ作成](    {{site.baseurl}}/iteration_)
+1. [外部設計](            {{site.baseurl}}/iteration_)
+1. [内部設計](            {{site.baseurl}}/iteration_)
+1. [リファクタリング](    {{site.baseurl}}/iteration_)
+1. [テスト](              {{site.baseurl}}/iteration_)
+1. [総評と次回への改善点]({{site.baseurl}}/iteration_)
 
 #### イテレーション7 (グループチャット機能）
-1. [要求及び仕様](        {{site.baseurl}}/)
-1. [プロトタイプ作成](    {{site.baseurl}}/)
-1. [外部設計](            {{site.baseurl}}/)
-1. [内部設計](            {{site.baseurl}}/)
-1. [リファクタリング](    {{site.baseurl}}/)
-1. [テスト](              {{site.baseurl}}/)
-1. [総評と次回への改善点]({{site.baseurl}}/)
+1. [要求及び仕様](        {{site.baseurl}}/iteration_)
+1. [プロトタイプ作成](    {{site.baseurl}}/iteration_)
+1. [外部設計](            {{site.baseurl}}/iteration_)
+1. [内部設計](            {{site.baseurl}}/iteration_)
+1. [リファクタリング](    {{site.baseurl}}/iteration_)
+1. [テスト](              {{site.baseurl}}/iteration_)
+1. [総評と次回への改善点]({{site.baseurl}}/iteration_)
 
 ### 評価
 ---
-1. [自己評価]({{site.baseurl}}/)
+1. [自己評価]({{site.baseurl}}/iteration_)
