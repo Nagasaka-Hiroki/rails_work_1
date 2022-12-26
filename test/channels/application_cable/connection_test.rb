@@ -8,4 +8,10 @@ class ApplicationCable::ConnectionTest < ActionCable::Connection::TestCase
   #
   #   assert_equal connection.user_id, "42"
   # end
+
+  #コネクションの開始を確認する。終了もする。
+  test "check start connection" do
+    connect
+    disconnect
+  end
 end

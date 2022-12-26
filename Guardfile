@@ -57,4 +57,6 @@ guard 'livereload' do
   # javascript
   watch(%r{app/javascript/.+\.js})
   watch(%r{app/javascript/channels/.+\.js})
+  # add action cable scripts
+  watch(%r{app/channels/.+\.rb})
 end

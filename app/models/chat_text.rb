@@ -12,9 +12,7 @@ class ChatText < ApplicationRecord
     #コールバックで実装しようとしたが、返り値を使用したいと思ったのでやめる。
     
     #中間テーブルに追加をして参照できるようにする。
-    def set_chat_table
-        user = session[:user]
-        room = Room.find(params[:id])
-        chat = Chat.create(user: user, room: room, chat_text: self)
+    def set_chat_table user=nil, room=nil
+        Chat.create user: user, room: room, chat_text: self
     end
 end

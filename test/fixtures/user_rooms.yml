@@ -1,5 +1,13 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-nkun:
-  user: 1
-  room: 1
+nkun_room:
+  user_id: 1
+  room_id: 1
+
+xsan_room:
+  user_id: 2
+  room_id: 2
+
+ysan_room:
+  user_id: 3
+  room_id: 3

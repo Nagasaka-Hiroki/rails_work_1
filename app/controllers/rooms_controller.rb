@@ -18,9 +18,10 @@ class RoomsController < ApplicationController
         #フォームのための変数
         @chat_text = ChatText.new
         #ルームの発言一覧を取り出す。
-        #@user = session[:user]
-        #set_room
         @chats = Chat.where(user: @user, room: @room)
+        #action cableの認証で使うための情報をクッキーに保存する。
+        cookies[:user_info] = {value: @user.id}
+        cookies[:room_info] = {value: @room.id}
     end
     #新しくルームを作るための画面を作る。
     def new

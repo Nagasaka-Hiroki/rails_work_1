@@ -1,5 +1,6 @@
 # Ruby on Railsを使ったプログラム（プロトタイプ)
-　mainブランチで使うための機能を仮実装してテストする。
+　mainブランチで使うための機能を仮実装して試す。  
+完成したものはmainブランチに取り入れていく。
 
 ## バージョン
 |項目|バージョン|
@@ -42,6 +43,19 @@ docker run --name dev_prototype -it -v $(pwd):/home/general_user/rails_dir -p 35
 ```
 コンテナ内から`rails new `を実行してプロジェクトを作成する。(ただ`rails new`した場合ブランチが`main`になるので追跡する前に`prototype`に切り替える。)
 
+追記：  
+イテレーション１の途中でdocker composeを使用する方向に変更した。以下のコマンドでコンテナが作成できる。
+
+```bash
+docker compose up -d
+```
+
+また、今回作ったdocker-compose.ymlのファイルは事前にDockerfileでイメージを作っていることを前提としている。以下のコマンドでイメージを作成する。
+
+```bash
+docker build -t rails_container:rails_on_jammy .
+```
+
 ## livereload有効化
 以下を参考に設定をする。
 > - [https://github.com/guard/guard-livereload](https://github.com/guard/guard-livereload)
@@ -60,3 +74,6 @@ docker run --name dev_prototype -it -v $(pwd):/home/general_user/rails_dir -p 35
 ./open_firefox controller_name action_name id
 ```
 上記コマンドでfirefox上で`http://172.17.0.2:3000/controller_name/action_name/id`のURLにアクセすることができる。
+
+追記：  
+IPアドレスが変更されている。スクリプトファイルは修正し、正常に動作するように変更した。

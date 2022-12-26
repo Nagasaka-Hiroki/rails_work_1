@@ -10,7 +10,7 @@ consumer.subscriptions.create("RoomChannel", {
     //フォームで入力後にshift + Enterで送信する。
     form_text_box.addEventListener('keydown',(event)=>{
       //shift + Enterが押されない場合は即時リターンする。
-      //ド・モルガンの法則。
+      //ド・モルガンの法則。許可するのは次のパターン。(event.key==='Enter' && event.shiftKey)。
       if(event.key!=='Enter' || !event.shiftKey){
         return;
       }
@@ -29,9 +29,9 @@ consumer.subscriptions.create("RoomChannel", {
         const reject_br = new RegExp('<br>|[\s]+|&nbsp;','g');
         const remaining_text = input_text.replaceAll(reject_br, "");
         //<br>を取り除いた後にテキストが残っているか判定する。
-        //残っている場合（空白出ない場合）、入力情報有りとして処理する。
+        //残っている場合（空白ではない場合）、入力情報有りとして処理する。
         if (remaining_text!=="") {
-          //this.speak(event.target.value);
+          this.speak(event.target.value);
           event.target.value='';
         }
       }
@@ -41,10 +41,6 @@ consumer.subscriptions.create("RoomChannel", {
       //空白or改行だけの入力を防止する処理を追加すれば上記になる。
       //if(event.key==='Enter' && event.shiftKey){
       //  this.speak(event.target.value);
-      //  console.log(event);
-      //  console.log(event.target);
-      //  console.log(event.target.id);
-      //  console.log(event.target.value);
       //  event.target.value='';
       //  return event.preventDefault();
       //}
@@ -70,8 +66,10 @@ consumer.subscriptions.create("RoomChannel", {
 
   received(data) {
     // Called when there's incoming data on the websocket for this channel
-    //const element = document.querySelector('#chat_log');
-    //element.insertAdjacentHTML('beforeend', data['message']);
+    const chat_log = document.querySelector('#chat_log');
+    chat_log.insertAdjacentHTML('beforeend', data["content"]);
+    //console.log(data);
+    //console.log(data["content"]);
   },
 
   speak: function(content) {

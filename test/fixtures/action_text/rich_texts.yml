@@ -2,3 +2,9 @@
 #   record: name_of_fixture (ClassOfFixture)
 #   name: content
 #   body: <p>In a <i>million</i> stars!</p>
+
+#one:
+#  record_id: 1
+#  record_type: "ChatText"
+#  name: content
+#  body: "<div>test text from rich_texts.yml</div>"

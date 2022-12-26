@@ -2,4 +2,12 @@
 
 nkun:
   id: 1
-  room_name: 'nkun'
+  room_name: nkun
+
+xsan:
+  id: 2
+  room_name: xsan
+
+ysan:
+  id: 3
+  room_name: ysan
