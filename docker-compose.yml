@@ -1,7 +1,7 @@
 version: "3.9"
 services:
   rails:
-    container_name: rails
+    container_name: rails_main
     #事前に`docker build -t rails_container:rails_on_jammy .`を実行する。
     image: rails_container:rails_on_jammy
     volumes:
@@ -13,17 +13,17 @@ services:
       - 35729:35729
       - 3000:3000
     environment:
-      BINDING: 172.18.0.2
+      BINDING: 172.19.0.2
     tty: true #この行がないとコンテナに入れない。
     networks:
-      rails_network:
-        ipv4_address: 172.18.0.2
+      rails_main_network:
+        ipv4_address: 172.19.0.2
 networks:
-  rails_network:
-    name: rails_network
+  rails_main_network:
+    name: rails_main_network
     driver: bridge
     ipam:
       driver: default
       config:
-        - subnet: 172.18.0.0/16
-          gateway: 172.18.0.1
+        - subnet: 172.19.0.0/16
+          gateway: 172.19.0.1

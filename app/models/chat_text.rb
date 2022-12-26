@@ -6,10 +6,6 @@ class ChatText < ApplicationRecord
     #チャットテキスト自体もユーザ名とルーム名と紐付ける必要があるので定義
     has_one :user, through: :chat
     has_one :room, through: :chat
-
-    #コールバックを記述する。
-    #after_create :set_chat_table, on: RoomChannel.speak
-    #コールバックで実装しようとしたが、返り値を使用したいと思ったのでやめる。
     
     #中間テーブルに追加をして参照できるようにする。
     def set_chat_table user=nil, room=nil

@@ -36,14 +36,6 @@ consumer.subscriptions.create("RoomChannel", {
         }
       }
       return event.preventDefault();
-
-      //原型
-      //空白or改行だけの入力を防止する処理を追加すれば上記になる。
-      //if(event.key==='Enter' && event.shiftKey){
-      //  this.speak(event.target.value);
-      //  event.target.value='';
-      //  return event.preventDefault();
-      //}
     });
     //送信ボタンでも送信できるようにする。
     document.querySelector("#send_button").addEventListener('click', (event)=>{
@@ -68,8 +60,6 @@ consumer.subscriptions.create("RoomChannel", {
     // Called when there's incoming data on the websocket for this channel
     const chat_log = document.querySelector('#chat_log');
     chat_log.insertAdjacentHTML('beforeend', data["content"]);
-    //console.log(data);
-    //console.log(data["content"]);
   },
 
   speak: function(content) {

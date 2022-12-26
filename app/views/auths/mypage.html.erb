@@ -7,7 +7,6 @@
     <p>
         <%= @user.user_name %>
     </p>
-    <%#= link_to 'ルーム一覧', url_for(controller: 'rooms', action: 'index',only_path: false, user: @user.user_name, password: @user.password) %>
     <%= link_to 'ルーム一覧', controller: 'rooms', action: 'index' %>
     <br />
     <%= link_to 'ログアウトします', url_for(action: 'logout',only_path: false, user: 'WT5CZXGqkwLuv05D', password: 'WT5CZXGqkwLuv05D') %>
