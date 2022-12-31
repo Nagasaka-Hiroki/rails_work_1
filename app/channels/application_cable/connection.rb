@@ -20,7 +20,7 @@ module ApplicationCable
     private
     #ユーザを探す。
     def find_current_user
-      if current_user = User.find(cookies[:user_info])
+      if current_user = User.find_by(id: cookies[:user_info])
         current_user
       else
         #見つからない場合は404のエラーで返す。
@@ -29,7 +29,7 @@ module ApplicationCable
     end
     #ルームを探す
     def find_current_room
-      if current_room = Room.find(cookies[:room_info])
+      if current_room = Room.find_by(id: cookies[:room_info])
         current_room
       else
         #見つからない場合は404のエラーで返す。

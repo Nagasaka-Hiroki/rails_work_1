@@ -9,10 +9,14 @@ class RoomChannel < ApplicationCable::Channel
 
   #クライアント側の挙動で呼び出される
   def speak(data)
-    chat_text = ChatText.create(content: data["content"])
-    chat = chat_text.set_chat_table current_user, current_room
+    #ユーザ及びルームが不明の場合はテキストも保存できない。
+    ActiveRecord::Base.transaction do
+      chat_text = ChatText.create!(content: data["content"])     #エラー時は例外が発生する。
+      @chat = chat_text.set_chat_table current_user, current_room #エラー時は例外が発生する。
+    end
+    #問題がなければブロードキャストする。
     ActionCable.server.broadcast(
-      "room_channel", { content: render_chat(chat)}
+      "room_channel", { content: render_chat(@chat)}
     )
   end
 

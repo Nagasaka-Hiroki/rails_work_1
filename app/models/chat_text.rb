@@ -1,4 +1,3 @@
-#HTML Parserを使う。
 
 class ChatText < ApplicationRecord
     #チャットの内容と紐付ける
@@ -18,8 +17,9 @@ class ChatText < ApplicationRecord
     validate :text_exists , on: %i[ create  save  update  ]
     
     #中間テーブルに追加をして参照できるようにする。
+    #!つきでインスタンスを作成する。
     def set_chat_table user=nil, room=nil
-        Chat.create user: user, room: room, chat_text: self
+        Chat.create! user: user, room: room, chat_text: self
     end
 
     private
