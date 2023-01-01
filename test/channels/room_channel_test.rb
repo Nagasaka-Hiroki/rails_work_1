@@ -57,15 +57,6 @@ class RoomChannelTest < ActionCable::Channel::TestCase
       #room_channelストリームが購読されているか確認する。
       assert_has_stream "room_channel"
 
-      #インスタンスの確認
-      assert_instance_of ActionCable::Server::Base, ActionCable.server
-      assert_instance_of RoomChannel, subscription
-
-      #ブロードキャストをする    
-      assert_broadcast_on("room_channel", { content: "<div>test message</div>" }) do
-        ActionCable.server.broadcast("room_channel", { content: "<div>test message</div>" })
-      end
-
       #データベースを使うアクションを実行する。
       #実行前は空のはず
       assert_not ChatText.exists?, "データベースにデータがあります。誤りです。"

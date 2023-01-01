@@ -12,11 +12,11 @@ class User < ApplicationRecord
         uniqueness: true,      #唯一である。
         presence:   true,      #空を許可しない。
         length: { in: 1..15 }, #1文字以上16文字未満。
-        format: { with: %r{[a-zA-Z\d]*} } #半角英数字のみを許可する。空白は許可しない。
+        format: { with: %r{[a-zA-Z\d]+} } #半角英数字のみを許可する。空白は許可しない。
 
     validates :password,       #パスワードの検証ルール
         presence:   true,      #空を許可しない。
         length: { in: 1..15 }, #1文字以上16文字未満。
-        format: { with: %r{[a-zA-Z\d]*} } #半角英数字のみを許可する。空白は許可しない。
+        format: { with: %r{[a-zA-Z\d]+} } #半角英数字のみを許可する。空白は許可しない。
 
 end

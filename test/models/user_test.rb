@@ -12,22 +12,66 @@ class UserTest < ActiveSupport::TestCase
     user = User.create!(user_name: "SampleUser", password: "SamplePass")
     assert_instance_of User, user, "正しく作成されませんでした。バリデーションが間違っています。"
   end
-  #失敗を期待するパターン1
-  test "fail create test" do
-    #半角英数字以外の記号と空白を突っ込んだ情報かつ16文字以上
-    assert_raises(ActiveRecord::RecordInvalid) do
-      User.create!(user_name: "!\"#$%&'()=-~^ |\\{}*;+_?/><", password: "!\"#$%&'()=-~^ |\\{}*;+_?/><")
-    end
-    user = User.new(user_name: "!\"#$%&'()=-~^ |\\{}*;+_?/><", password: "!\"#$%&'()=-~^ |\\{}*;+_?/><")
-    assert_not user.save, "正しく作成されました。バリデーションが間違えています。"
+
+  #失敗を期待するパターン1 既存のユーザを作成
+  test "create exists user" do
+    nkun = User.find_by(user_name: "nkun")
+    user = User.new(user_name: nkun.user_name, password: "anotherpass")
+    assert_not user.save, "保存に成功しました。間違っています。"
   end
-  #失敗を期待するパターン2 1が失敗しないので追加で検証
-  test "fail create test2" do
-    #空白を許さない。
+
+  #失敗を期待するパターン2
+  test "wrong user name" do
+    #半角英数字以外の記号と空白を突っ込んだ情報
     assert_raises(ActiveRecord::RecordInvalid) do
-      User.create!(user_name: " ", password: " ")
+      User.create!(user_name: "!#$%&'()=-~^ |?", password: "newpassword")
     end
-    user = User.new(user_name: " ", password: " ")
-    assert_not user.save, "空白であるにも関わらず正しく作成されました。バリデーションが間違っています。"
+    user = User.new(user_name: "!#$%&'()=-~^ |?", password: "newpassword")
+    assert_not user.save, "作成されました。バリデーションが間違えています。"
+  end
+  test "wrong user password" do
+    #半角英数字以外の記号と空白を突っ込んだ情報
+    assert_raises(ActiveRecord::RecordInvalid) do
+      User.create!(user_name: "newuser", password: "!#$%&'()=-~^ |?")
+    end
+    user = User.new(user_name: "newuser", password: "!#$%&'()=-~^ |?")
+    assert_not user.save, "作成されました。バリデーションが間違えています。"
+  end
+
+  #失敗を期待するパターン3
+  test "too long user name" do
+    #16文字以上
+    assert_raises(ActiveRecord::RecordInvalid) do
+      User.create!(user_name: "123456789abcdefg", password: "123456789abcdefg")
+    end
+    user = User.new(user_name: "123456789abcdefg", password: "123456789abcdefg")
+    assert_not user.save, "作成されました。バリデーションが間違えています。"
+  end
+  test "too long password" do
+    #16文字以上
+    assert_raises(ActiveRecord::RecordInvalid) do
+      User.create!(user_name: "abc", password: "123456789abcdefg")
+    end
+    user = User.new(user_name: "abc", password: "123456789abcdefg")
+    assert_not user.save, "作成されました。バリデーションが間違えています。"
+  end
+
+  #失敗を期待するパターン4
+  test "create empty user_name" do
+    #空を許さない。
+    #ユーザ名が空
+    assert_raises(ActiveRecord::RecordInvalid) do
+      User.create!(user_name: "", password: "notempty")
+    end
+    user = User.new(user_name: "", password: "notempty")
+    assert_not user.save, "空であるにも関わらず作成されました。バリデーションが間違っています。"
+  end
+  test "create empty password" do
+    #パスワードが空
+    assert_raises(ActiveRecord::RecordInvalid) do
+      User.create!(user_name: "notempty", password: "")
+    end
+    user = User.new(user_name: "notempty", password: "")
+    assert_not user.save, "空であるにも関わらず作成されました。バリデーションが間違っています。"
   end
 end

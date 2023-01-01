@@ -29,25 +29,31 @@ class ChatTextTest < ActiveSupport::TestCase
     assert_instance_of Chat, chat_alt , "作成には成功するはずである。"
   end
 
+  #成功を期待するパターン
+  test "create record" do
+    chat_text = ChatText.new content: "<div>test text</div>"
+    assert chat_text.save, "作成に失敗しました。"
+  end
+
   #作成に失敗するパターン１　空の場合
   test "empty test" do
     assert_raises(ActiveRecord::RecordInvalid) do
       ChatText.create! content: ""
     end
     empty_chat_text = ChatText.new content: ""
-    assert_not empty_chat_text.save, "正しく作成されました。バリデーションが間違っています。"
+    assert_not empty_chat_text.save, "作成されました。バリデーションが間違っています。"
   end
-  #作成に失敗するパターン２　タグに囲まれた、空白と改行（&nbsp;と<br>と\n)
+  #作成に失敗するパターン２　タグに囲まれた、空白と改行（&nbsp;と<br>と\n)、空白だけ
   test "space text test" do
     #禁止のパターンを複数列挙する。
-    invalid_inputs = [ "<div> \n</div>","<div> </div>","<div> &nbsp; </div>","<div> <br> </div>"  ]
+    invalid_inputs = [ "<div> \n</div>","<div> </div>","<div> &nbsp; </div>","<div> <br> </div>", " "  ]
 
     invalid_inputs.each do |value|
       assert_raises(ActiveRecord::RecordInvalid) do
         ChatText.create! content: value
       end
       space_text = ChatText.new content: value
-      assert_not space_text.save, "正しく作成されました。バリデーションが間違っています。"
+      assert_not space_text.save, "作成されました。バリデーションが間違っています。"
     end
   end
 end

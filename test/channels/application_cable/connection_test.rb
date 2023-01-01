@@ -18,8 +18,10 @@ class ApplicationCable::ConnectionTest < ActionCable::Connection::TestCase
   #失敗時の共通部分切り出し。
   def failed_connection_setup(&block)
     #フィクスチャファイルで指定していない値を使う。
-    cookies[:user_info] = 100
-    cookies[:room_info] = 100
+    @wrong_user_id = 100
+    @wrong_room_id = 100
+    cookies[:user_info] = @wrong_user_id
+    cookies[:room_info] = @wrong_room_id
     #テスト前にコネクトを実行する。
     connect
     #テスト内容をブロックで受け取る。
@@ -41,6 +43,8 @@ class ApplicationCable::ConnectionTest < ActionCable::Connection::TestCase
     assert_reject_connection do
       failed_connection_setup
     end
+    assert_nil User.find_by(id: @wrong_user_id) , "クッキーに指定したユーザは存在しません。"
+    assert_nil Room.find_by(id: @wrong_room_id) , "クッキーに指定したルームは存在しません。"
   end
 
 end
