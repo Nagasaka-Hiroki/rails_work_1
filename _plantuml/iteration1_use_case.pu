@@ -1,0 +1,68 @@
+'イテレーション１の期待する動作についてまとめる
+
+'アカウント作成の挙動
+@startuml use_case_iteration1
+'使用する要素を宣言する
+actor 初利用者 as beginner
+actor 利用者 as user
+node "コンテナ \n FlowChat server" as fcs
+rectangle 認証の挙動 as auths_action {
+    (認証) as auths
+    (認証情報を入力) as input_data
+    note left of auths
+        アカウント作成時：コンテナに登録情報を送信
+        ログイン時：コンテナに認証情報を送信し認証を検証
+    end note
+    rectangle アカウント作成時の挙動 as create_action {
+        (アカウントを作成) as create_user
+        (アカウント作成\nページに移動) as create_user_page
+    }
+}
+rectangle 認証成功下の挙動 as under_auths {
+    (ログアウト) as logout
+    (ルーム一覧表示) as show_rooms
+    (ひとり言画面に移動) as todo_page
+    (ToDo・ひとり言を作成) as create_todo
+    (マイページを表示) as mypage
+}
+
+'ユースケースの依存関係
+create_user .> input_data        : <<include>>
+create_user ..> create_user_page : <<include>>
+input_data   <... auths          : <<include>>
+create_todo ..> todo_page        : <<include>>
+todo_page   .>  show_rooms       : <<include>>
+under_auths ..> auths            : <<include>>
+create_action --|> auths
+
+'ユースケースの関係
+'アカウント作成とユーザを紐付け
+beginner -[hidden]- create_user
+beginner -[hidden]- create_user
+beginner -[hidden]- create_user
+beginner -[hidden]- create_user
+beginner -[hidden]- create_user
+beginner -[hidden]- create_user
+beginner -[hidden]- create_user
+beginner -[hidden]- create_user
+beginner -- create_user
+'認証とシステムを紐付け
+fcs      - auths_action
+'認証動作とユーザを紐付け
+auths    - user
+'見え方を制御
+auths_action --[hidden]-- under_auths
+
+'利用者ができることを紐付け
+user -- logout
+user -- mypage
+
+user -[hidden]- create_todo
+user -[hidden]- create_todo
+user -[hidden]- create_todo
+user -[hidden]- create_todo
+user -[hidden]- create_todo
+user -[hidden]- create_todo
+user -- create_todo
+
+@enduml

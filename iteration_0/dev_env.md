@@ -45,3 +45,16 @@
 - [https://github.com/Nagasaka-Hiroki/rails_container](https://github.com/Nagasaka-Hiroki/rails_container)
 
 これで開発環境イメージの作成は以上である。
+
+#### 追記：Docker Composeの導入
+---
+　開発を開始してしばらくは`docker run`コマンドでコンテナを作成していた。しかし、ネットワークの設定や環境変数など追加の設定がある場合、Dockerfileだけで運用するのが手間になってきた。そのためコンテナを作成する目的以外の設定については`dokcer-compose.yml`にまとめることでコンテナの作成の手間を減らすことにした。この場合コンテナ作成も単純に`docker compose up -d`とするだけで、設定などもファイルに明記することができるメリットがある。そのため本件では`docker compose`でコンテナの作成をすることにした。
+
+　コンテナ作成はDockerfileとdocker-compose.ymlがあるディレクトリで、以下のコマンドを実行することで作成できる。
+
+```bash
+docker build -t rails_container:rails_on_jammy .
+docker compose up -d
+```
+
+　docker composeでイメージをビルドできるが、すでにイメージは別途で作成済みであった。ビルド込みで実行すると非常に時間がかかる。そのためビルドは切り分ける構成にした。そのためイメージ作成コマンドとコンテナ作成コマンドの２段階で作成する。

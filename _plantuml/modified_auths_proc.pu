@@ -1,0 +1,40 @@
+'ログイン処理についてまとめる。
+@startuml auths_procedure
+'skinparam DefaultFontSize 23
+title ログインからログアウトまでの処理の流れ
+|非ログイン状態|
+start
+if (アカウントを持っている?) then (no)
+    :アカウント作成画面を表示;
+    :ユーザ名(user_name)と
+    パスワード(passward)を入力;
+:データベースに登録;
+else (yes)
+    :ログイン画面を表示;
+    :ユーザ名(user_name)と
+    パスワード(passward)を入力;
+endif
+
+while (認証) is (失敗)
+endwhile (成功)
+
+|偽ログイン状態|
+
+|ログイン状態|
+:マイページを表示;
+
+repeat :ログアウトページに移動;
+:リンクの偽認証情報で認証;
+backward :ブラウザバック;
+repeat while (偽認証に成功したか？) is (失敗) not (成功)
+
+|偽ログイン状態|
+:ログアウトページを表示;
+:空の認証情報を付与した
+選択画面のリンクをクリック;
+
+|非ログイン状態|
+:ログアウト成功;
+end
+
+@enduml
