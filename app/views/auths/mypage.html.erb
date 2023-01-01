@@ -1,13 +1,12 @@
-<h1>アカウント情報表示</h1>
+<h1>マイページ</h1>
 
 <div>
     <p>
-        <%= 'this is test' %>
+        こんにちわ<%= @user.user_name %>さん。
     </p>
-    <p>
-        <%= @user.user_name %>
-    </p>
-    <%= link_to 'ルーム一覧', controller: 'rooms', action: 'index' %>
+
+    <%= link_to 'チャットルーム一覧へ移動', controller: 'rooms', action: 'index' %>
+    <br />
     <br />
     <%= link_to 'ログアウトします', url_for(action: 'logout',only_path: false, user: 'WT5CZXGqkwLuv05D', password: 'WT5CZXGqkwLuv05D') %>
 </div>

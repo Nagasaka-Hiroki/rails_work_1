@@ -1,6 +1,6 @@
 <%= form_with class: class_name, editor_id: editor_id do |f| %>
     <div class="field">
-        <%= f.label "伝えたいことを入力しよう。" %>
+        <%= f.label "伝えたいことを入力しよう。(shift+Enterで送信)" %>
         <%= f.rich_text_area :content , id: editor_id %>
     </div>
     <div>

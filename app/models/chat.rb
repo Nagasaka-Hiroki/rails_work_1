@@ -12,23 +12,18 @@ class Chat < ApplicationRecord
   private
   #!なしのメソッドのバリデーション
   def record_exists_check
-    find_record_attr do
-      #エラー情報を付与。
-      errors.add(:id, "invalid user, room or chat_text detected.")
-    end
+    find_record_attr
   end
   #!付きのメソッドのバリデーション
   def record_exists_check!
     find_record_attr do
-      #エラー情報を付与。
-      errors.add(:id, "invalid user, room or chat_text detected.")
       #マッチしなければ例外を発生させる。
       raise ActiveRecord::RecordInvalid
     end
   end
 
   #データベースに存在するか調べる。
-  def find_record_attr(&error_proc)
+  def find_record_attr(&block)
     #Userモデルのインスタンスをデータベースから探す。
     #なければnewしてインスタンスを生成する。
     user = User.find_or_initialize_by(user_name: self.user&.user_name)
@@ -41,7 +36,9 @@ class Chat < ApplicationRecord
     room_status = Room.where(room_name: room.room_name).exists?
     chat_text_status = ChatText.where(id: chat_text.id).exists?
     unless user_status && room_status && chat_text_status #1つでも存在しなければエラー
-      error_proc.call
+      #エラー情報を付与。
+      errors.add(:id, "invalid user, room or chat_text detected.")
+      block&.call
     end
   end
 end

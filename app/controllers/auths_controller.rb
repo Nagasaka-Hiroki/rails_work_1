@@ -9,9 +9,6 @@ class AuthsController < ApplicationController
   end
   # ログイン情報を上書き
   def logout
-    #ログアウトしたページは専用のユーザのみが見られるようにする
-    #専用ユーザをログアウトユーザorエンプティユーザとする
-    #処理の本体はempty_authsに託している。このメソッドはルーティングとの紐付けと画面表示のためにある。
   end
   #新規ユーザの登録
   def new

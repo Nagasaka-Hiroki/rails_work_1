@@ -15,10 +15,7 @@ class UserRoom < ApplicationRecord
   #登録先のレコードが存在するか？
   #!なしのメソッドのバリデーション
   def record_exists_check
-    find_user_room do
-      #エラー情報を付与。
-      errors.add(:id, "invalid user or room detected.")
-    end
+    find_user_room
   end
   #!付きのメソッドのバリデーション
   def record_exists_check!
@@ -31,7 +28,7 @@ class UserRoom < ApplicationRecord
   end
 
   #データベースに存在するか調べる。
-  def find_user_room(&error_proc)
+  def find_user_room(&block)
     #Userモデルのインスタンスをデータベースから探す。
     #なければnewしてインスタンスを生成する。
     user = User.find_or_initialize_by(user_name: self.user&.user_name)
@@ -41,7 +38,9 @@ class UserRoom < ApplicationRecord
     user_status = User.where(user_name: user.user_name).exists?
     room_status = Room.where(room_name: room.room_name).exists?
     unless user_status && room_status #片方でも存在しなければエラー
-      error_proc.call
+      #エラー情報を付与。
+      errors.add(:id, "invalid user or room detected.")
+      block&.call
     end
   end
 

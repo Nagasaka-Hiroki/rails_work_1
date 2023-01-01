@@ -26,7 +26,7 @@ class RoomsController < ApplicationController
     def create
     end
 
-    #
+
     private
     def set_room
         #URLの末尾からルームを特定する

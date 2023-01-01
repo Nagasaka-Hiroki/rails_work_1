@@ -1,7 +1,21 @@
-<h1>ログインホーム画面</h1>
+<h1>FlowChat</h1>
 
-<%= link_to 'ログインする',url_for(action: 'mypage',only_path: false, user: '', password: '') %>
+<div>
+    <p>FlowChatにようこそ</p>
+    <p>このサイトはフローチャート機能を取り入れたチャットアプリです。</p>
+    <p>（注：現在開発中。フローチャート機能未実装）</p>
+    <p>現在以下の機能を実装しています。</p>
+    <ol>
+        <li>ひとり言機能（ひとりでチャットを使います）</li>
+    </ol>
+</div>
 <br />
-
-<%= link_to 'アカウントを作成します', url_for(action: 'new',only_path: false, user: '', password: '') %>
+<div>
+    <p>アカウントを持っている方はログインしてください</p>
+    <%= link_to 'ログインする',url_for(action: 'mypage',only_path: false, user: '', password: '') %>
+</div>
 <br />
+<div>
+    <p>アカウントを持っていない人は作成してください。</p>
+    <%= link_to 'アカウントを作成します', url_for(action: 'new',only_path: false, user: '', password: '') %>
+</div>

@@ -12,7 +12,7 @@ nkun="nkun:password@" #必要に応じてログインユーザも変えられる
 # ・ 使い方
 # ./open_firefox controller_name action_name id
 # 上記のように入力して実行すると。
-# http://172.17.0.2:3000/controller_name/action_name/id のURLを生成しfirefoxを開く。
+# http://172.19.0.2:3000/controller_name/action_name/id のURLを生成しfirefoxを開く。
 # 必要に応じて末尾に&をつけてバックグラウンドで再生すると便利に使えるかもしれない。
 # 先頭の ./ の入力が面倒であれば~/.bash_aliases にエイリアスを登録すると短くできる。
 

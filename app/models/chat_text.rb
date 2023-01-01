@@ -27,8 +27,6 @@ class ChatText < ApplicationRecord
     def text_exists!
         #共通部分を呼び出し、例外処理を追加する。
         filter_html do
-            #エラーを追加する。
-            errors.add(:content, "Only spaces or new lines cannot be saved.")
             #マッチしなければ例外を発生させる。
             raise ActiveRecord::RecordInvalid
         end
@@ -37,14 +35,11 @@ class ChatText < ApplicationRecord
     #!なしメソッドでのバリデーション
     def text_exists
         #共通部分を呼び出し、例外処理を追加する。
-        filter_html do
-            #エラーを追加する。
-            errors.add(:content, "Only spaces or new lines cannot be saved.")
-        end
+        filter_html
     end
     
     #バリデーションで共通する解析部分を取り出す。
-    def filter_html(&error_proc)
+    def filter_html(&block)
         #受信したデータを解析する。
         parsed_html = Nokogiri::HTML::DocumentFragment.parse(self.content.body.to_s)
         #空白と改行以外のテキストを含むか？
@@ -53,8 +48,10 @@ class ChatText < ApplicationRecord
         filter = %r{[\S]+} #空白文字列以外が存在すれば入力があったと判定する。
         #マッチしなければ例外を発生させる。
         unless filter.match?(innerhtml_text)
+            #エラーを追加する。
+            errors.add(:content, "Only spaces or new lines cannot be saved.")
             #処理の異なる部分は別に切り出す。
-            error_proc.call
+            block&.call
         end
     end
 end
