@@ -1258,3 +1258,39 @@ Basic認証ではまずログアウト機能がないそうだ。その理由と
 ドキュメントを追加した。ログアウトの件がすこし問題だとまとめていて思った。ことログアウトに関してはBasic認証以外のほうが楽に実装できるかもしれない。しかしこれも経験としてやっておいて損はないので良しとする。
 
 この段階で開発本体とドキュメントをコミットする。またイテレーション１はこれで完了とするのでこの記録もここで止める。次のイテレーションの記録に移る。
+
+---
+
+### 追記：action cableの設定について
+
+簡単にredisについて学習した。バージョン0.1.0では設定にredisを使っていなかったが、せっかくなので使ってみる。
+
+redisを使うためには以下の項目を実行する必要がある。
+
+1. redisコンテナを追加
+1. 設定を変更
+
+まずコンテナを追加する。
+
+#### redisコンテナを追加
+以下に先日学習した内容について示す。
+- [GitHub - Nagasaka-Hiroki/redis_sample_1: redisについて学習する。](https://github.com/Nagasaka-Hiroki/redis_sample_1)
+
+上記の内容をもとにdocker-compose.ymlにファイルを追加する。追加後にコンテナを作成できるか確認する。  
+→OK。コンテナを起動できた。
+
+#### 設定を変更
+　設定の変更については以下を参考。
+
+- [rails/actioncable at main · rails/rails · GitHub](https://github.com/rails/rails/tree/main/actioncable)
+- [Action Cable Overview — Ruby on Rails Guides](https://edgeguides.rubyonrails.org/action_cable_overview.html#redis-adapter)
+
+以下の内容を追加した。動作確認もした。問題なく動作したのでこの設定でバージョンv0.1.1としてプッシュする。
+
+```yml
+development:
+  adapter: redis
+  url: redis://172.19.0.3:6379
+```
+
+確認としてポート番号を変えると正しく失敗したので挙動は正しいと考えられる。
