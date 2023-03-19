@@ -16,7 +16,7 @@
 |ブランチ|内容|
 |-|-|
 |main|開発本体|
-|prototype|試作及びお試し実装|
+|iteration(X)_prototype|各イテレーションにおける試作及びお試し実装|
 |gh-pages|開発に関するドキュメント|
 
 ## 開発用のDockerfileとコンテナ
