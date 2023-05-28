@@ -59,7 +59,8 @@ permalink: /
 以下準備中。
 
 #### イテレーション2 (チャート化機能)
-
+1. [イテレーション2の準備]({{site.baseurl}}/iteration_2/preparation)
+1. [イテレーション2 試行錯誤]({{site.baseurl}}/iteration_2/try_and_err)
 
 #### イテレーション3 (分岐機能)
 
